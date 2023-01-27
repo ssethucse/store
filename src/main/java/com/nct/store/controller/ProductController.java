@@ -20,7 +20,7 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping("/getProducts")
-    ResponseEntity<Page<Product>> getAllProducts(@RequestParam(defaultValue = "5", required = false)
+    ResponseEntity<Page<Product>> getAllProducts(@RequestParam(defaultValue = "10", required = false)
                                                          Integer pageSize,
                                                  @RequestParam(defaultValue = "0", required = false)
                                                          Integer page) {
@@ -29,7 +29,7 @@ public class ProductController {
 
     @GetMapping("/getProducts/{id}")
     ResponseEntity<Page<Product>> getProductsById(@PathVariable Long id,
-                                                  @RequestParam(defaultValue = "5", required = false)
+                                                  @RequestParam(defaultValue = "10", required = false)
                                                           Integer pageSize,
                                                   @RequestParam(defaultValue = "0", required = false)
                                                           Integer page) {
@@ -43,7 +43,7 @@ public class ProductController {
 
     @GetMapping("/getProducts/search/{name}")
     ResponseEntity<Page<Product>> getProductsByName(@PathVariable String name,
-                                                    @RequestParam(defaultValue = "5", required = false)
+                                                    @RequestParam(defaultValue = "1", required = false)
                                                             Integer pageSize,
                                                     @RequestParam(defaultValue = "0", required = false)
                                                             Integer page) {
