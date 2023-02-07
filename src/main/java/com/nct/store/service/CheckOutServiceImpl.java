@@ -7,6 +7,7 @@ import com.nct.store.entity.Customer;
 import com.nct.store.entity.Order;
 import com.nct.store.entity.OrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,8 @@ public class CheckOutServiceImpl implements CheckoutService{
 
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -36,7 +39,17 @@ public class CheckOutServiceImpl implements CheckoutService{
         order.setShippingAddress(purchase.getShippingAddress());
 
         Customer customer = purchase.getCustomer();
+
+        String email = customer.getEmail();
+        Customer customerFromDb = customerRepository.findByEmail(email);
+        if(customerFromDb!=null){
+            customer = customerFromDb;
+        }
+
         customer.add(order);
+
+
+        customer.setIdentity(passwordEncoder.encode(purchase.getCustomer().getIdentity()));
 
         Customer save = customerRepository.save(customer);
 

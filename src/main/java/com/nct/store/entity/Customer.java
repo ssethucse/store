@@ -1,5 +1,6 @@
 package com.nct.store.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +23,11 @@ public class Customer {
     private String lastName;
     @Column(name = "email")
     private String email;
+    private String phone;
+    private String identity;
+    private String otp;
 
+    @JsonIgnore
     @OneToMany(mappedBy ="customer", cascade = CascadeType.ALL)
     //@JoinColumn(name = "customer_id")
     private Set<Order> orders = new HashSet<>();

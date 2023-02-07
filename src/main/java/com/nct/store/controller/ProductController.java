@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/nct/store/product")
 @CrossOrigin(value = "*")
 public class ProductController {
 

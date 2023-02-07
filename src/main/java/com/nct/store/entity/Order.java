@@ -37,6 +37,7 @@ public class Order {
     @UpdateTimestamp
     private Date lastUpdated;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "order" , fetch = FetchType.LAZY)
     //@JoinColumn(name = "order_id")
     private Set<OrderItem> orderItems = new HashSet<>();
@@ -56,10 +57,12 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="shipping_address_id",referencedColumnName = "id")
     private Address shippingAddress;
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "billing_address_id",referencedColumnName = "id")
     private Address billingAddress;
