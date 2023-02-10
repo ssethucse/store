@@ -27,7 +27,7 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.register(customer), HttpStatus.OK);
     }
 
-    @GetMapping("/getDetail")
+    @GetMapping("/validate/getDetail")
     ResponseEntity<Customer> getDetail(@RequestParam(value = "phone") String username) {
         return new ResponseEntity<>(customerService.getDetails(username), HttpStatus.OK);
     }

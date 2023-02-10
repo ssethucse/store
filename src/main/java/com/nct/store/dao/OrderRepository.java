@@ -15,5 +15,12 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query(value = "select * from orders left outer join customer on orders.customer_id = customer.id where customer.phone= :phone order by date_created desc ", nativeQuery = true)
     Page<Order> findCustAll(@Param("phone") String phone, Pageable pageable);
 
-   List<Order> findByCustomerId(@Param("id") Long id);
+    @Query(value = "select * from orders left outer join customer on orders.customer_id = customer.id where customer.phone= :phone order by date_created desc ", nativeQuery = true)
+    List<Order> findCustomer(@Param("phone") String phone);
+
+
+    @Query(value = "select * from orders order by date_created desc LIMIT 1", nativeQuery = true)
+    Order findOrderId();
+
+    List<Order> findByCustomerId(@Param("id") Long id);
 }

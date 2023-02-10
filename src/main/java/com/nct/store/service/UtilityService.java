@@ -19,14 +19,14 @@ public class UtilityService {
     }
 
     public String getNextId(String orderID) {
-        if (orderID != null && Integer.valueOf(orderID) >= 999) {
+        if (orderID != null && Integer.valueOf(orderID) >= 9999) {
             String order = String.format("%07d", 1);
             return order;
         } else if (orderID != null) {
             String order = String.format("%07d", Integer.valueOf(orderID) + 1);
             return order;
         } else {
-            return null;
+            return String.format("%07d", 1);
         }
     }
 
