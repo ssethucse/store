@@ -27,7 +27,7 @@ public class CustomerService {
     public String register(Customer users) {
         users.setFirstName(users.getFirstName());
         users.setPhone(users.getPhone());
-        users.setIdentity(passwordEncoder.encode(users.getIdentity()));
+        //users.setIdentity(passwordEncoder.encode(users.getIdentity()));
         customerRepository.save(users);
         return "Customer Registered Successfully!";
     }

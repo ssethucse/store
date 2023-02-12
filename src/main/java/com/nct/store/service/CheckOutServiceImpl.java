@@ -36,7 +36,7 @@ public class CheckOutServiceImpl implements CheckoutService{
         //generate Tracking Number
         Order orderId = orderRepository.findOrderId();
         if(orderId!=null) {
-            orderTrackingNumber = generateOrderTrackingNumber(orderId.getOrderTrackingNumber());
+            orderTrackingNumber = orderId.getOrderTrackingNumber();
         }
         orderTrackingNumber = generateOrderTrackingNumber(orderTrackingNumber);
 

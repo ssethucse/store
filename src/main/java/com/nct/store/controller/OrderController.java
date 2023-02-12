@@ -40,7 +40,6 @@ public class OrderController {
     @GetMapping("/findCustomerProfile")
     CustomerProfile findCustomerAddress(@RequestParam String phone) {
         return orderService.findCustomer(phone);
-
     }
 }
 

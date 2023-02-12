@@ -54,9 +54,10 @@ public class MessageSenderService {
 
             Customer details = customerService.getDetails(request.getPhone());
             if (details != null && details.getId() != null) {
-                if (request.getIdentity() != null) {
+                /*if (request.getIdentity() != null) {
                     details.setIdentity(request.getIdentity());
-                }
+                }*/
+                details.setIdentity(null);
                 details.setOtp(otp);
                 customerService.update(details);
             } else {
@@ -64,7 +65,7 @@ public class MessageSenderService {
                 customers.setOtp(otp);
                 customers.setFirstName(request.getName());
                 customers.setPhone(request.getPhone());
-                customers.setIdentity(request.getIdentity());
+                //customers.setIdentity(request.getIdentity());
                 customerService.register(customers);
             }
             return request;
@@ -85,10 +86,13 @@ public class MessageSenderService {
                 if (details.getFirstName() != null) {
                     messageRequest.setName(details.getFirstName());
                 }
-                if (messageRequest.getIdentity() != null &&
-                        !passwordEncoder.matches(messageRequest.getIdentity(), details.getIdentity())) {
+                if (details.getIdentity() == null) {
                     details.setIdentity(passwordEncoder.encode(messageRequest.getIdentity()));
                 }
+                /*if (messageRequest.getIdentity() != null &&
+                        !passwordEncoder.matches(messageRequest.getIdentity(), details.getIdentity())) {
+                    details.setIdentity(passwordEncoder.encode(messageRequest.getIdentity()));
+                }*/
                 customerService.update(details);
                 return messageRequest;
             }
