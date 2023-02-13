@@ -21,5 +21,9 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query(value = "select * from orders order by date_created desc LIMIT 1", nativeQuery = true)
     Order findOrderId();
 
-    List<Order> findByCustomerId(@Param("id") Long id);
+    @Query(value = "select * from orders where orders.order_tracking_number = :id", nativeQuery = true)
+    Order findOrderByTrack(@Param("id") String id);
+
+    @Query(value = "SELECT * FROM orders WHERE orders.date_created BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW() order by orders.date_created desc", nativeQuery = true)
+    List<Order> findMonthOrders();
 }

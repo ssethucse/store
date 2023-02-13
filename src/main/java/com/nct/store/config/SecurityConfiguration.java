@@ -72,6 +72,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
+
  /*   @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()

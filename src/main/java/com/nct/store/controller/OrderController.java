@@ -1,8 +1,7 @@
 package com.nct.store.controller;
 
 import com.nct.store.dto.CustomerProfile;
-import com.nct.store.entity.Address;
-import com.nct.store.entity.Customer;
+import com.nct.store.dto.OrderResp;
 import com.nct.store.entity.Order;
 import com.nct.store.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +39,21 @@ public class OrderController {
     @GetMapping("/findCustomerProfile")
     CustomerProfile findCustomerAddress(@RequestParam String phone) {
         return orderService.findCustomer(phone);
+    }
+
+    @GetMapping("/findMonthOrders")
+    List<Order> findMonthOrders() {
+        return orderService.findMonthOrders();
+    }
+
+    @GetMapping("/findAllOrders")
+    List<OrderResp> findAllOrders() {
+        return orderService.findAllOrders();
+    }
+
+    @PostMapping("/status/upgrade")
+    String updateOrderStatus(@RequestBody String orderStatus) {
+        return orderService.updateOrderStatus(orderStatus);
     }
 }
 

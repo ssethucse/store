@@ -35,7 +35,6 @@ public class MessageSenderService {
     public MessageModel sendMessage(MessageModel request) {
         try {
             Twilio.init(accountSID, accountAuthToken);
-
             String otp = generateOtp();
 
             String smsText = "One Time password for verification-" + otp;
@@ -81,7 +80,8 @@ public class MessageSenderService {
     public MessageModel validateOtp(MessageModel messageRequest) {
         if (messageRequest.getOtp() != null && messageRequest.getPhone() != null) {
             Customer details = customerService.getDetails(messageRequest.getPhone());
-            if (messageRequest.getOtp().equalsIgnoreCase(details.getOtp())) {
+            if (details !=null && details.getOtp()!=null
+                    && messageRequest.getOtp().equalsIgnoreCase(details.getOtp())) {
 
                 if (details.getFirstName() != null) {
                     messageRequest.setName(details.getFirstName());
