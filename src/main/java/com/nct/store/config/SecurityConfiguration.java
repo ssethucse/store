@@ -51,13 +51,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         // We don't need CSRF for this example
-        //httpSecurity.cors().and().csrf().disable();
+        httpSecurity.cors().and().csrf().disable();
 
-        httpSecurity.csrf().disable()
+        httpSecurity.cors().and().csrf().disable()
                 // dont authenticate this particular request
                 .authorizeRequests()
                 .antMatchers("/authenticate", "/customer/register","/mobile/validateOtp", "/mobile/sendOtp",
-                        "/nct/store/**","/checkout/purchase","/order/**","/customer/validate/**")
+                        "/nct/store/**","/checkout/purchase","/customer/validate/**")
                 .permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().

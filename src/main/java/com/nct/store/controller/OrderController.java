@@ -6,6 +6,7 @@ import com.nct.store.entity.Order;
 import com.nct.store.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,10 +29,7 @@ public class OrderController {
                                                             Integer page) {
         Page<Order> byCustomerEmail = orderService.findByCustomerPhone(phone, page, pageSize);
         /*HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Access-Control-Allow-Methods", "GET");
-        responseHeaders.set("Access-Control-Allow-Headers", "Content-Type,X-Auth-Token,Origin,Authorization");
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        responseHeaders.set("X-Get-Header", "GET");
+        responseHeaders.set("Access-Control-Allow-Origin", "http://localhost:4200");
         return ResponseEntity.ok().headers(responseHeaders).body(byCustomerEmail);*/
         return new ResponseEntity<>(byCustomerEmail, HttpStatus.OK);
     }
