@@ -42,16 +42,478 @@ AUTO_INCREMENT = 1;
 -- -----------------------------------------------------
 -- Categories
 -- -----------------------------------------------------
-INSERT INTO product_category(category_name) VALUES ('Books');
+INSERT INTO product_category(category_name) VALUES ('Filter Coffee');
+INSERT INTO product_category(category_name) VALUES ('Instant Coffee');
+INSERT INTO product_category(category_name) VALUES ('Chicory');
+INSERT INTO product_category(category_name) VALUES ('Liquid Decoction');
+INSERT INTO product_category(category_name) VALUES ('Freeze Dried Gold');
+INSERT INTO product_category(category_name) VALUES ('Premix');
+INSERT INTO product_category(category_name) VALUES ('Tea');
+INSERT INTO product_category(category_name) VALUES ('Sukku Coffee');
+INSERT INTO product_category(category_name) VALUES ('Nattu Sakkarai');
+INSERT INTO product_category(category_name) VALUES ('Vermicelli,Semiya');
+INSERT INTO product_category(category_name) VALUES ('Paneer');
+INSERT INTO product_category(category_name) VALUES ('Butter');
+INSERT INTO product_category(category_name) VALUES ('Ghee');
+INSERT INTO product_category(category_name) VALUES ('Oil');
+INSERT INTO product_category(category_name) VALUES ('Masala');
+INSERT INTO product_category(category_name) VALUES ('Rudhram,Soap Products');
+INSERT INTO product_category(category_name) VALUES ('Noodles,Chikki Produts');
+INSERT INTO product_category(category_name) VALUES ('Wheat,Maida Products');
+INSERT INTO product_category(category_name) VALUES ('Sooji Produts');
+INSERT INTO product_category(category_name) VALUES ('Ragi,Gram Flour Produts');
 
 
 -- -----------------------------------------------------
 -- Products
 -- -----------------------------------------------------
-INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) VALUES ('BOOK-TECH-1000', 'Crash Course in Python', 'Learn Python at your own pace. The author explains how the technology works in easy-to-understand language. This book includes working examples that you can apply to your own projects. Purchase the book and get started today!', 'assets/images/products/books/book-luv2code-1000.png', 1, 100, 14.99, 12.00, 1, NOW());
+USE `nct-store`;
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PB-50', 'Premium Blend 50g', 'First quality premium blended seeds', 'assets/images/products/FC/filter-coffee-pb.jpg', 1, 50, 35, 32, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PB-100', 'Premium Blend 100g', 'First quality premium blended seeds', 'assets/images/products/FC/filter-coffee-pb.jpg', 1, 50, 70, 64, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PB-250', 'Premium Blend 250g', 'First quality premium blended seeds', 'assets/images/products/FC/filter-coffee-pb.jpg', 1, 50, 175, 160, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PB-500', 'Premium Blend 500g', 'First quality premium blended seeds', 'assets/images/products/FC/filter-coffee-pb.jpg', 1, 50, 350, 320, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PB-1000', 'Premium Blend 1kg', 'First quality premium blended seeds', 'assets/images/products/FC/filter-coffee-pb.jpg', 1, 50, 700, 640, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SPL-50', 'Special Blend 50g', 'Mixed of both first and second quality seeds', 'assets/images/products/FC/filter-coffee-spl.jpg', 1, 50, 28, 25, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SPL-100', 'Special Blend 100g', 'Mixed of both first and second quality seeds', 'assets/images/products/FC/filter-coffee-spl.jpg', 1, 50, 56, 50, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SPL-250', 'Special Blend 250g', 'Mixed of both first and second quality seeds', 'assets/images/products/FC/filter-coffee-spl.jpg', 1, 50, 140, 125, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SPL-500', 'Special Blend 500g', 'Mixed of both first and second quality seeds', 'assets/images/products/FC/filter-coffee-spl.jpg', 1, 50, 280, 250, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SPL-1000', 'Special Blend 1kg', 'Mixed of both first and second quality seeds', 'assets/images/products/FC/filter-coffee-spl.jpg', 1, 50, 560, 500, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('udym-50', 'Udhayam 50g', 'Mixed of 80% Coffee with 20% Chicory', 'assets/images/products/FC/filter-coffee-udym.jpg', 1, 50, 31, 27, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('udym-100', 'Udhayam 100g', 'Mixed of 80% Coffee with 20% Chicory', 'assets/images/products/FC/filter-coffee-udym.jpg', 1, 50, 61, 53, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('udym-200', 'Udhayam 200g', 'Mixed of 80% Coffee with 20% Chicory', 'assets/images/products/FC/filter-coffee-udym.jpg', 1, 50, 121, 105, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('udym-500', 'Udhayam 500g', 'Mixed of 80% Coffee with 20% Chicory', 'assets/images/products/FC/filter-coffee-udym.jpg', 1, 50, 302, 262, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('dte-50', 'Delite 50g', 'Mixed of 60% Coffee with 40% Chicory', 'assets/images/products/FC/filter-coffee-dte.jpg', 1, 50, 18, 15, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('dte-100', 'Delite 100g', 'Mixed of 60% Coffee with 40% Chicory', 'assets/images/products/FC/filter-coffee-dte.jpg', 1, 50, 35, 29, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('dte-200', 'Delite 200g', 'Mixed of 60% Coffee with 40% Chicory', 'assets/images/products/FC/filter-coffee-dte.jpg', 1, 50, 69, 57, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('dte-500', 'Delite 500g', 'Mixed of 60% Coffee with 40% Chicory', 'assets/images/products/FC/filter-coffee-dte.jpg', 1, 50, 172, 142, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('dvym-200', 'Dhivyam 200g', 'Mixed of 90% Coffee with 10% Chicory', 'assets/images/products/FC/filter-coffee-dvym.jpg', 1, 50, 94, 74, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('dvym-500', 'Dhivyam 500g', 'Mixed of 90% Coffee with 10% Chicory', 'assets/images/products/FC/filter-coffee-dvym.jpg', 1, 50, 234, 184, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('andm-100', 'Anandham 100g', 'Mixed of 70% Coffee with 30% Chicory', 'assets/images/products/FC/filter-coffee-andm.jpg', 1, 50, 42, 35, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('andm-200', 'Anandham 200g', 'Mixed of 70% Coffee with 30% Chicory', 'assets/images/products/FC/filter-coffee-andm.jpg', 1, 50, 83, 69, 1, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('andm-500', 'Anandham 500g', 'Mixed of 70% Coffee with 30% Chicory', 'assets/images/products/FC/filter-coffee-andm.jpg', 1, 50, 207, 172, 1, NOW());
 
 
 
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PI-50', 'Pure Instant Pkt 50g', 'Pure Instant Coffee', 'assets/images/products/FC/pureinstant.jpg', 1, 50, 120, 105, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PI-100', 'Pure Instant Pkt 100g', 'Pure Instant Coffee', 'assets/images/products/FC/pureinstant.jpg', 1, 50, 240, 210, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PIJ-50', 'Pure Instant Jar 50g', 'Pure Instant Coffee', 'assets/images/products/FC/pureinstantjar.jpg', 1, 50, 140, 119, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PIJ-100', 'Pure Instant Jar 100g', 'Pure Instant Coffee', 'assets/images/products/FC/pureinstantjar.jpg', 1, 50, 275, 233, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('IS-50', 'Instant Pkt 50g', 'Instant Coffee with chicory', 'assets/images/products/FC/instant.jpg', 1, 50, 78, 67, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('IS-100', 'Instant Pkt 100g', 'Instant Coffee with chicory', 'assets/images/products/FC/instant.jpg', 1, 50, 156, 134, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('ISJ-50', 'Instant Jar 50g', 'Instant Coffee with chicory', 'assets/images/products/FC/instantjar.jpg', 1, 50, 96, 85, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('ISJ-100', 'Instant Jar 100g', 'Instant Coffee with chicory', 'assets/images/products/FC/instantjar.jpg', 1, 50, 187, 165, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MSJ-50', 'Master 50g', 'Master Coffee with chicory', 'assets/images/products/FC/master.jpeg', 1, 50, 40, 32, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MSJ-200', 'Master 200g', 'Master Coffee with chicory', 'assets/images/products/FC/master.jpeg', 1, 50, 159, 127, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('IS-2', 'Instant Pkt 2.3g', 'Instant Coffee with chicory', 'assets/images/products/FC/instant.jpg', 1, 50, 2, 2, 2, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('IS-5', 'Instant Pkt 5.8g', 'Instant Coffee with chicory', 'assets/images/products/FC/instant.jpg', 1, 50, 5, 5, 2, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('chi-50', 'Chicory Pkt 50g', 'Chicory- Uses to mix with filter coffee to give strong', 'assets/images/products/FC/chicory.jpg', 1, 50, 14, 11, 3, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('chi-100', 'Chicory Pkt 100g', 'Chicory- Uses to mix with filter coffee to give strong', 'assets/images/products/FC/chicory.jpg', 1, 50, 28, 22, 3, NOW());
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('VLD-200', 'Vidiyal Liquid Decoction 200ml', 'Liquid Decoction ', 'assets/images/products/FC/vidiyal.jpg', 1, 50, 160, 125, 4, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('ELD-200', 'Express Liquid Decoction 200ml', 'Liquid Decoction ', 'assets/images/products/FC/express.jpeg', 1, 50, 135, 100, 4, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NGJ-50', 'Narasus Gold Jar 50g', 'Narasus Gold Jar', 'assets/images/products/FC/gold.jpeg', 1, 50, 250, 215, 5, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NGJ-100', 'Narasus Gold Jar 100g', 'Narasus Gold Jar', 'assets/images/products/FC/gold.jpeg', 1, 50, 480, 410, 5, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('pmx-1', 'Premix Coffee 1kg', 'Premix Coffee 1kg', 'assets/images/products/PMX/pmxcoffee.jpg', 1, 50, 380, 280, 6, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('pmx-1', 'Premix Cardamon Tea 1kg', 'Premix Cardamon Tea 1kg', 'assets/images/products/PMX/pmxcardamon.jpg', 1, 50, 475, 335, 6, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('pmx-250', 'Narasus Milk Powder 250g', 'Narasus Milk Powder 250g', 'assets/images/products/PMX/milkpwdr.jpg', 1, 50, 125, 76, 6, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('pmx-1', 'Narasus Milk Powder 1kg', 'Narasus Milk Powder 1kg', 'assets/images/products/PMX/milkpwdr.jpg', 1, 50, 500, 305, 6, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('AT-100', 'Advaitha Tea 100g', 'First quality premium Tea', 'assets/images/products/TEA/advaitha.jpeg', 1, 50, 61, 50, 7, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('AT-250', 'Advaitha Tea 250g', 'First quality premium Tea', 'assets/images/products/TEA/advaitha.jpeg', 1, 50, 152, 124, 7, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('AT-500', 'Advaitha Tea 500g', 'First quality premium Tea', 'assets/images/products/TEA/advaitha.jpeg', 1, 50, 303, 247, 7, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('BBT-100', 'Besh Besh Tea 100g', 'Best quality premium Tea', 'assets/images/products/TEA/beshbesh.jpg', 1, 50, 36, 30, 7, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('BBT-250', 'Besh Besh Tea 250g', 'Best quality premium Tea', 'assets/images/products/TEA/beshbesh.jpg', 1, 50, 89, 74, 7, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('BBT-500', 'Besh Besh Tea 500g', 'Best quality premium Tea', 'assets/images/products/TEA/beshbesh.jpg', 1, 50, 177, 147, 7, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SC-5', 'Sukku Coffee 10g', 'Ingredients of Sukku Mixed', 'assets/images/products/SC/sukku.jpg', 1, 50, 5, 5, 8, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SC-50', 'Sukku Coffee 50g', 'Ingredients of Sukku Mixed', 'assets/images/products/SC/sukku.jpg', 1, 50, 25, 22, 8, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SC-200', 'Sukku Coffee 200g', 'Ingredients of Sukku Mixed', 'assets/images/products/SC/sukku.jpg', 1, 50, 98, 86, 8, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SCJ-200', 'Sukku Coffee Jar 200g', 'Ingredients of Sukku Mixed', 'assets/images/products/SC/sukkujar.jpeg', 1, 50, 102, 91, 8, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NS-250', 'Nattu sakkarai 250g', 'Nattu sakkarai', 'assets/images/products/NS/nattu.jpg', 1, 50, 27, 22, 9, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NS-500', 'Nattu sakkarai 500g', 'Nattu sakkarai', 'assets/images/products/NS/nattu.jpg', 1, 50, 52, 42, 9, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NS-1000', 'Nattu sakkarai 1 kg', 'Nattu sakkarai', 'assets/images/products/NS/nattu.jpg', 1, 50, 102, 82, 9, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NPC-200', 'Narasus Palm Candy 200g Jar', 'Palm Candy', 'assets/images/products/NS/palm.jpg', 1, 50, 162, 143, 9, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NCS', 'Narasus Coconut Sugar', 'Coconut Sugar', 'assets/images/products/NS/coconut.jpg', 1, 50, 136, 115, 9, NOW());
+
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('VMY', 'Besh Besh Vermicelli  180g', 'Vermicelli', 'assets/images/products/VMY/vmy.jpeg', 1, 50, 21, 16, 10, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RVMY', 'Besh Besh Ragi Vermicelli  180g', 'Vermicelli', 'assets/images/products/VMY/rvmy.jpg', 1, 50, 25, 20, 10, NOW());
+
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PNR', 'Narasus Paneer 200g – Gold', 'Narasus Paneer', 'assets/images/products/milk/panneer.jpg', 1, 50, 105, 87, 11, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PNR', 'Narasus Paneer 1Kg – Gold', 'Narasus Paneer', 'assets/images/products/milk/panneer. png', 1, 50, 455, 335, 11, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('PNR', 'Narasus Paneer 1Kg – Silver', 'Narasus Paneer', 'assets/images/products/milk/panneer.jpg', 1, 50, 380, 285, 11, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('BTR', 'Narasus Butter (Unsalted) 100g', 'Narasus Butter', 'assets/images/products/milk/butter.jpg', 1, 50, 58, 52, 12, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('BTR', 'Narasus Butter (Unsalted) 500 g', 'Narasus Butter', 'assets/images/products/milk/butter.jpg', 1, 50, 280, 245, 12, NOW());
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('GEE', 'Narasus Ghee Jar 200ml', 'Narasus Ghee', 'assets/images/products/milk/ghee.jpeg', 1, 50, 180, 152, 13, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('GEE', 'Narasus Ghee Jar 500ml', 'Narasus Ghee', 'assets/images/products/milk/ghee.jpeg', 1, 50, 435, 370, 13, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('GEE', 'Narasus Ghee Jar 1 Ltr', 'Narasus Ghee', 'assets/images/products/milk/ghee.jpeg', 1, 50, 865, 735, 13, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NGO', 'Narasus Gingelly Oil Pouch 500ml', 'Narasus Gingelly Oil', 'assets/images/products/OIL/gingellypouch.jpg', 1, 50, 210, 170, 14, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NGO', 'Narasus Gingelly Oil Jar 500ml', 'Narasus Gingelly Oil', 'assets/images/products/OIL/gingelly.jpg', 1, 50, 220, 180, 14, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NGO', 'Narasus Gingelly Oil Jar 1000ml', 'Narasus Gingelly Oil', 'assets/images/products/OIL/gingelly.jpg', 1, 50, 435, 355, 14, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NGR', 'Narasus Groundnut Oil Jar 500ml', 'Narasus Groundnut Oil', 'assets/images/products/OIL/ground.jpg', 1, 50, 150, 125, 14, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NGR', 'Narasus Groundnut Oil Jar 1000ml', 'Narasus Groundnut Oil', 'assets/images/products/OIL/ground.jpg', 1, 50, 295, 245, 14, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NCO', 'Narasus Coconut Oil Jar 500ml', 'Narasus Coconut Oil', 'assets/images/products/OIL/coconut.jpg', 1, 50, 180, 150, 14, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NCO', 'Narasus Coconut Oil Jar 1000ml', 'Narasus Coconut Oil', 'assets/images/products/OIL/coconut.jpg', 1, 50, 355, 295, 14, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('NRB', 'Narasus RiceBran Oil Jar 1000ml', 'Narasus RiceBran Oil', 'assets/images/products/OIL/ricebran.jpg', 1, 50, 220, 200, 14, NOW());
+
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-100', 'Dhall Powder 100g', 'Dhall Powder', 'assets/images/products/MLA/dhall.jpg', 1, 50, 44, 28, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-100', 'Garlic Powder 100g', 'Garlic Powder', 'assets/images/products/MLA/gar.jpg', 1, 50, 46, 30, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-100', 'Idli Powder 100g', 'Idli Powder', 'assets/images/products/MLA/idly.jpg', 1, 50, 44, 28, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-100', 'Curry leaf Powder 100g', 'Curry leaf Powder', 'assets/images/products/MLA/curry.jpg', 1, 50, 46, 31, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-100', 'Puliyodhari Powder 100g', 'Puliyodhari leaf Powder', 'assets/images/products/MLA/puli.jpg', 1, 50, 51, 34, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-50', 'Red Chilli Powder 50g', 'Red Chilli Powder', 'assets/images/products/MLA/chilli.jpg', 1, 50, 39, 22, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-50', 'Coriander Powder 50g', 'Coriander Powder', 'assets/images/products/MLA/cori.jpg', 1, 50, 22, 15, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-50', 'Turmeric  Powder 50g', 'Turmeric Powder', 'assets/images/products/MLA/tur.jpg', 1, 50, 18, 10, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-50', 'Pepper Powder 50g', 'Pepper Powder', 'assets/images/products/MLA/pepper.jpg', 1, 50, 64, 41, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-100', 'Sambar Powder 100g', 'Sambar Powder', 'assets/images/products/MLA/sambar.jpeg', 1, 50, 60, 38, 15, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MLA-50', 'Curry Masala Powder 50g', 'Curry Masala Powder', 'assets/images/products/MLA/currym.jpg', 1, 50, 34, 21, 15, NOW());
+
+
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-200', 'Rudhram Health Mix Pkt 200gm', 'Health Mix ', 'assets/images/products/RDM/health.jpg', 1, 50, 74, 65, 16, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-500', 'Rudhram Health Mix Jar 500gm', 'Health Mix ', 'assets/images/products/RDM/health.jpg', 1, 50, 183, 160, 16, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-soap', 'Rudhram Coffee Soap', 'Rudhram Coffee Soap', 'assets/images/products/RDM/coffee.jpg', 1, 50, 64, 55, 16, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-soap', 'Rudhram Goat Milk Soap', 'Rudhram Goat Milk Soap', 'assets/images/products/RDM/goat.jpg', 1, 50, 64, 55, 16, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-soap', 'Rudhram Kuppaimeni Soap', 'Rudhram Kuppaimeni Soap', 'assets/images/products/RDM/kuppai.jpg', 1, 50, 64, 55, 16, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-soap', 'Rudhram Vetiver Soap', 'Rudhram Vetiver Soap', 'assets/images/products/RDM/vetiver.jpg', 1, 50, 64, 55, 16, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-soap', 'Rudhram Jamun Seed Powder 200g', 'Rudhram Jamun Seed Powder', 'assets/images/products/RDM/jamun.jpg', 1, 50, 95, 85, 16, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RDM-soap', 'Rudhram Amla Powder Jar 200g', 'Rudhram Amla Powder', 'assets/images/products/RDM/amla.jpg', 1, 50, 99, 85, 16, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-200', 'Narasus Peanut Chikki 100g', 'Peanut Chikki', 'assets/images/products/EAT/pea.jpg', 1, 50, 38, 27, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-200', 'Narasus Sesame Chikki 100g', 'Sesame Chikki', 'assets/images/products/EAT/ses.jpg', 1, 50, 38, 27, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-160', 'Narasus Mixed Millet Noodles 160g', 'Noodles', 'assets/images/products/EAT/mixed.jpg', 1, 50, 63, 55, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-160', 'Narasus Moringa Noodles 160g', 'Noodles', 'assets/images/products/EAT/moringa.jpg', 1, 50, 63, 55, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-160', 'Narasus Ragi Noodles 160g', 'Noodles', 'assets/images/products/EAT/ragi.jpg', 1, 50, 63, 55, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-160', 'Narasus Redrice Noodles 160g', 'Noodles', 'assets/images/products/EAT/redrice.jpg', 1, 50, 63, 55, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-160', 'Narasus Samba Wheat Noodles 160g', 'Noodles', 'assets/images/products/EAT/samba.jpg', 1, 50, 63, 55, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-160', 'Narasus Ragi Choco Crunch 80g', 'Choco', 'assets/images/products/EAT/choco.jpg', 1, 50, 27, 23, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-180', 'Narasus Besh Besh Mixed Millet Pasta 180g', 'Choco', 'assets/images/products/EAT/mpasta.jpg', 1, 50, 69, 60, 17, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('EAT-180', 'Narasus Besh Besh Samba Wheat Pasta 180g', 'Choco', 'assets/images/products/EAT/spasta.jpg', 1, 50, 69, 60, 17, NOW());
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('WEAT', 'Besh Besh W.W. Atta 500g', 'Besh Besh Whole Wheat Atta', 'assets/images/products/WEAT/watta.jpg', 1, 50, 34, 29, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('WEAT', 'Besh Besh W.W. Atta 1kg', 'Besh Besh Whole Wheat Atta', 'assets/images/products/WEAT/watta.jpg', 1, 50, 67, 56, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('WEAT', 'Besh Besh W.W. Atta 5kg', 'Besh Besh Whole Wheat Atta', 'assets/images/products/WEAT/watta.jpg', 1, 50, 300, 265, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('WEAT', 'Besh Besh W.W. Atta 10kg', 'Besh Besh Whole Wheat Atta', 'assets/images/products/WEAT/watta.jpg', 1, 50, 550, 460, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('WEAT', 'Besh Besh W.W. Atta 20kg', 'Besh Besh Whole Wheat Atta', 'assets/images/products/WEAT/watta.jpg', 1, 50, 1095, 915, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('WEAT', 'Besh Besh W.W. Atta 50kg', 'Besh Besh Whole Wheat Atta', 'assets/images/products/WEAT/watta.jpg', 1, 50, 2732, 2282, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh Maida 500g', 'Besh Besh Maida', 'assets/images/products/WEAT/maida.jpg', 1, 50, 36, 29, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh Maida 5kg', 'Besh Besh Maida', 'assets/images/products/WEAT/maida.jpg', 1, 50, 345, 275, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh Parotta Maida 10kg', 'Besh Besh Maida', 'assets/images/products/WEAT/maida.jpg', 1, 50, 590, 450, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh Parotta Maida 20kg', 'Besh Besh Maida', 'assets/images/products/WEAT/maida.jpg', 1, 50, 1175, 895, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh Parotta Maida 50kg', 'Besh Besh Maida', 'assets/images/products/WEAT/maida.jpg', 1, 50, 2932, 2232, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh All Purpose Maida 10kg', 'Besh Besh Maida', 'assets/images/products/WEAT/amaida.jpg', 1, 50, 590, 405, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh All Purpose Maida 20kg', 'Besh Besh Maida', 'assets/images/products/WEAT/amaida.jpg', 1, 50, 1175, 805, 18, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('MDA', 'Besh Besh All Purpose Maida 50kg', 'Besh Besh Maida', 'assets/images/products/WEAT/amaida.jpg', 1, 50, 2932, 2007, 18, NOW());
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SJI', 'Besh Besh Sooji 200g', 'Besh Besh Sooji', 'assets/images/products/WEAT/sooji.jpg', 1, 50, 17, 13, 19, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SJI', 'Besh Besh Sooji 500g', 'Besh Besh Sooji', 'assets/images/products/WEAT/sooji.jpg', 1, 50, 39, 31, 19, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SJI', 'Besh Besh Sooji 5 Kg', 'Besh Besh Sooji', 'assets/images/products/WEAT/sooji.jpg', 1, 50, 375, 295, 19, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('SJI', 'Besh Besh Samba Rava 500g', 'Besh Besh Samba Rava', 'assets/images/products/WEAT/samba.jpeg', 1, 50, 75, 65, 19, NOW());
+
+
+
+
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RAGI', 'Besh Besh Ragi Powder 500g', 'Besh Besh Ragi Powder', 'assets/images/products/WEAT/ragi.jpg', 1, 50, 35, 27, 20, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('RAGI', 'Besh Besh Ragi Powder 25kg', 'Besh Besh Ragi Powder', 'assets/images/products/WEAT/ragi.jpg', 1, 50, 1225, 1075, 20, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('GRM', 'Besh Besh Gram Flour 500g', 'Besh Besh Gram Flour', 'assets/images/products/WEAT/gram.jpeg', 1, 50, 70, 47, 20, NOW());
+
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, discount_price, category_id,date_created) 
+VALUES ('GRM', 'Besh Besh Gram Flour 50kg', 'Besh Besh Gram Flour', 'assets/images/products/WEAT/gram.jpeg', 1, 50, 6600, 3950, 20, NOW());
 
 -- -----------------------------------------------------
 -- Schema nct-store

@@ -43,7 +43,7 @@ public class ProductController {
 
     @GetMapping("/getProducts/search/{name}")
     ResponseEntity<Page<Product>> getProductsByName(@PathVariable String name,
-                                                    @RequestParam(defaultValue = "1", required = false)
+                                                    @RequestParam(defaultValue = "10", required = false)
                                                             Integer pageSize,
                                                     @RequestParam(defaultValue = "0", required = false)
                                                             Integer page) {
