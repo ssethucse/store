@@ -89,10 +89,13 @@ public class MessageSenderService {
                 if (details.getIdentity() == null) {
                     details.setIdentity(passwordEncoder.encode(messageRequest.getIdentity()));
                 }
+
+
                 /*if (messageRequest.getIdentity() != null &&
                         !passwordEncoder.matches(messageRequest.getIdentity(), details.getIdentity())) {
                     details.setIdentity(passwordEncoder.encode(messageRequest.getIdentity()));
                 }*/
+                details.setOtp(null);
                 customerService.update(details);
                 return messageRequest;
             }
