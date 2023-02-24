@@ -38,18 +38,18 @@ public class MessageSenderService {
             String otp = generateOtp();
 
             String smsText = "One Time password for verification-" + otp;
-            String mobileNumber = request.getPhone();
+            String mobileNumber = "+91"+request.getPhone();
             request.setText(smsText);
             request.setOtp(otp);
 
-         /*   PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
+            PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
             PhoneNumber senderTwilloPhoneNumber = new PhoneNumber(twilloSenderNumber);
 
             MessageCreator creator = com.twilio.rest.api.v2010.account.Message.creator(recieverPhoneNumber,
                     senderTwilloPhoneNumber, smsText);
             Message create = creator.create();
             Message.Status status = create.getStatus();
-            request.setStatus(status.toString());*/
+            request.setStatus(status.toString());
 
             Customer details = customerService.getDetails(request.getPhone());
             if (details != null && details.getId() != null) {
@@ -101,5 +101,45 @@ public class MessageSenderService {
             }
         }
         return null;
+    }
+
+    public String placeOrder(String phone,String invoice) {
+        try {
+            Twilio.init(accountSID, accountAuthToken);
+
+            String smsText = "Your Order "+ invoice +"is placed successfully.Contact No.9944370922 For Enquiry.";
+            String mobileNumber = "+91"+phone;
+
+            PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
+            PhoneNumber senderTwilloPhoneNumber = new PhoneNumber(twilloSenderNumber);
+
+            MessageCreator creator = com.twilio.rest.api.v2010.account.Message.creator(recieverPhoneNumber,
+                    senderTwilloPhoneNumber, smsText);
+            Message create = creator.create();
+            return "Placed Successfully.";
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String updateOrder(String phone) {
+        try {
+            Twilio.init(accountSID, accountAuthToken);
+
+            String smsText = "Thanks For Your Order.It Successfully Delivered.Contact No.9944370922 For Enquiry.";
+            String mobileNumber = "+91"+phone;
+
+            PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
+            PhoneNumber senderTwilloPhoneNumber = new PhoneNumber(twilloSenderNumber);
+
+            MessageCreator creator = com.twilio.rest.api.v2010.account.Message.creator(recieverPhoneNumber,
+                    senderTwilloPhoneNumber, smsText);
+            Message create = creator.create();
+            return "Delivered Successfully.";
+
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

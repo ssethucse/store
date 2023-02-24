@@ -24,6 +24,8 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query(value = "select * from orders where orders.order_tracking_number = :id", nativeQuery = true)
     Order findOrderByTrack(@Param("id") String id);
 
+    Order findOrderByOrderTrackingNumber(String invoice);
+
     @Query(value = "SELECT * FROM orders WHERE orders.date_created BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW() order by orders.date_created desc", nativeQuery = true)
     List<Order> findMonthOrders();
 }

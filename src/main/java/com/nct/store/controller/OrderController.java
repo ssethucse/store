@@ -1,6 +1,7 @@
 package com.nct.store.controller;
 
 import com.nct.store.dto.CustomerProfile;
+import com.nct.store.dto.InvoiceResp;
 import com.nct.store.dto.OrderResp;
 import com.nct.store.entity.Order;
 import com.nct.store.service.OrderService;
@@ -52,6 +53,11 @@ public class OrderController {
     @PostMapping("/status/upgrade")
     String updateOrderStatus(@RequestBody String orderStatus) {
         return orderService.updateOrderStatus(orderStatus);
+    }
+
+    @PostMapping("/invoice")
+    List<InvoiceResp> getInvoiceDetails(@RequestBody String invoice) {
+        return orderService.invoiceStatus(invoice);
     }
 }
 

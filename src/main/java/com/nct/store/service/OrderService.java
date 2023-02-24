@@ -1,23 +1,32 @@
 package com.nct.store.service;
 
 import com.nct.store.dao.OrderRepository;
+import com.nct.store.dao.ProductRepository;
 import com.nct.store.dto.CustomerProfile;
+import com.nct.store.dto.InvoiceResp;
 import com.nct.store.dto.OrderResp;
 import com.nct.store.entity.Order;
+import com.nct.store.entity.OrderItem;
+import com.nct.store.entity.Product;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class OrderService {
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    ProductRepository productRepository;
+    @Autowired
+    MessageSenderService messageSenderService;
 
     public Page<Order> findByCustomerPhone(String email, Integer page, Integer pageSize) {
 
@@ -43,6 +52,12 @@ public class OrderService {
             if(customer.getStatus()!=null && customer.getStatus().equalsIgnoreCase("Delivered")){
                 customer.setStatus("In-Progress");
             }else {
+                try {
+                    String message = messageSenderService.updateOrder(customer.getCustomer().getPhone());
+                    log.info("Placed Order Successfully: {}",message);
+                } catch (Exception e) {
+                    log.error("Place Order Failed {}",e.getMessage());
+                }
                 customer.setStatus("Delivered");
             }
             orderRepository.save(customer);
@@ -73,5 +88,31 @@ public class OrderService {
         orderResp.setTotalPrice(data.getTotalPrice());
         orderResp.setTotalQuantity(data.getTotalQuantity());
         return orderResp;
+    }
+
+    public List<InvoiceResp> invoiceStatus(String invoice) {
+        Map<Long,String> prod = new HashMap<>();
+        List<Product> products = productRepository.findAll();
+        for(Product pro:products){
+            prod.put(pro.getId(),pro.getName());
+        }
+
+        Order customer = orderRepository.findOrderByOrderTrackingNumber(invoice);
+        InvoiceResp invoiceResp;
+        List<InvoiceResp> invoiceResps = new ArrayList<>();
+        if (customer != null) {
+            for(OrderItem orderItem: customer.getOrderItems()) {
+                invoiceResp = new InvoiceResp();
+                invoiceResp.setLocation(customer.getShippingAddress().getCity());
+                invoiceResp.setStreet(customer.getShippingAddress().getStreet());
+                invoiceResp.setZip(customer.getShippingAddress().getZipCode());
+                invoiceResp.setName(prod.get(orderItem.getId()));
+                invoiceResp.setPrice(orderItem.getUnitPrice());
+                invoiceResp.setQuantity(orderItem.getQuantity());
+                invoiceResps.add(invoiceResp);
+            }
+            return invoiceResps;
+        }
+        return null;
     }
 }

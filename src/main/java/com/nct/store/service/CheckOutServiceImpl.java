@@ -7,15 +7,16 @@ import com.nct.store.dto.PurchaseResponse;
 import com.nct.store.entity.Customer;
 import com.nct.store.entity.Order;
 import com.nct.store.entity.OrderItem;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
-import java.util.UUID;
 
 @Service
+@Slf4j
 public class CheckOutServiceImpl implements CheckoutService{
 
     @Autowired
@@ -26,6 +27,8 @@ public class CheckOutServiceImpl implements CheckoutService{
     UtilityService utilityService;
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    MessageSenderService messageSenderService;
 
     @Override
     @Transactional
@@ -52,8 +55,8 @@ public class CheckOutServiceImpl implements CheckoutService{
 
         Customer customer = purchase.getCustomer();
 
-        String email = customer.getPhone();
-        Customer customerFromDb = customerRepository.findByPhone(email);
+        String phone = customer.getPhone();
+        Customer customerFromDb = customerRepository.findByPhone(phone);
         if(customerFromDb!=null && customerFromDb.getFirstName()==null){
             customerFromDb.setFirstName(customer.getFirstName());
         }
@@ -72,6 +75,14 @@ public class CheckOutServiceImpl implements CheckoutService{
         //customer.setIdentity(passwordEncoder.encode(purchase.getCustomer().getIdentity()));
 
         Customer save = customerRepository.save(customer);
+
+
+        try {
+            String message = messageSenderService.placeOrder(phone,orderTrackingNumber);
+            log.info("Placed Order Successfully: {}",message);
+        } catch (Exception e) {
+            log.error("Place Order Failed {}",e.getMessage());
+        }
 
         return new PurchaseResponse(orderTrackingNumber);
     }

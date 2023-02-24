@@ -2,6 +2,7 @@ package com.nct.store.service;
 
 import com.nct.store.dao.CustomerRepository;
 import com.nct.store.entity.Customer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
@@ -32,7 +34,7 @@ public class CustomerService {
         return "Customer Registered Successfully!";
     }
 
-    public Customer update(Customer users) {
-        return customerRepository.save(users);
+    public Customer update(Customer user) {
+        return customerRepository.save(user);
     }
 }
