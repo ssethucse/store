@@ -6,6 +6,7 @@ import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.rest.api.v2010.account.MessageCreator;
 import com.twilio.type.PhoneNumber;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,6 +17,7 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 @Service
+@Slf4j
 public class MessageSenderService {
 
     @Autowired
@@ -69,6 +71,8 @@ public class MessageSenderService {
             }
             return request;
         } catch (Exception e) {
+            log.error("Error on Sending OTP: {}",e.getMessage());
+            //e.printStackTrace();
             return null;
         }
     }
