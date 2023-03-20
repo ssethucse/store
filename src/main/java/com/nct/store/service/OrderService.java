@@ -28,11 +28,14 @@ public class OrderService {
     @Autowired
     MessageSenderService messageSenderService;
 
-    public Page<Order> findByCustomerPhone(String email, Integer page, Integer pageSize) {
+    public List<Order> findByCustomerPhone(String email, Integer page, Integer pageSize) {
 
-        Pageable paging = PageRequest.of(page, pageSize);
+        /*Pageable paging = PageRequest.of(page, pageSize);
         Page<Order> custAll = orderRepository.findCustAll(email, paging);
-        return custAll;
+        return custAll;*/
+
+        List<Order> customer = orderRepository.findCustomer(email);
+        return customer;
     }
 
     public CustomerProfile findCustomer(String phone) {

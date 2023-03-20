@@ -24,6 +24,8 @@ public class MessageSenderService {
     CustomerService customerService;
     @Autowired
     PasswordEncoder passwordEncoder;
+    @Autowired
+    private EmailService emailService;
 
     @Value("${accountSID}")
     private String accountSID;
@@ -114,6 +116,12 @@ public class MessageSenderService {
             String smsText = "Your Order "+ invoice +"is placed successfully.Contact No.9944370922 For Enquiry.";
             String mobileNumber = "+91"+phone;
 
+            try {
+                emailService.sendMail("ssethucse@gmail.com",invoice+"-"+mobileNumber);
+            } catch (Exception e) {
+                log.error("Error while sending mail={}",e.getMessage());
+            }
+
             PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
             PhoneNumber senderTwilloPhoneNumber = new PhoneNumber(twilloSenderNumber);
 
@@ -133,6 +141,12 @@ public class MessageSenderService {
 
             String smsText = "Thanks For Your Order.It Successfully Delivered.Contact No.9944370922 For Enquiry.";
             String mobileNumber = "+91"+phone;
+
+            try {
+                emailService.sendMail("ssethucse@gmail.com",smsText+"-"+mobileNumber);
+            } catch (Exception e) {
+                log.error("Error while sending mail={}",e.getMessage());
+            }
 
             PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
             PhoneNumber senderTwilloPhoneNumber = new PhoneNumber(twilloSenderNumber);

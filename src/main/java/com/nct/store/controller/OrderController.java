@@ -23,12 +23,15 @@ public class OrderController {
     OrderService orderService;
 
     @GetMapping("/findByCustomerPhone/{phone}")
-    ResponseEntity<Page<Order>> findByCustomerEmail(@PathVariable String phone,
+    ResponseEntity<List<Order>> findByCustomerEmail(@PathVariable String phone,
                                                     @RequestParam(defaultValue = "10", required = false)
                                                             Integer pageSize,
                                                     @RequestParam(defaultValue = "0", required = false)
                                                             Integer page) {
-        Page<Order> byCustomerEmail = orderService.findByCustomerPhone(phone, page, pageSize);
+        //Page<Order> byCustomerEmail = orderService.findByCustomerPhone(phone, page, pageSize);
+        List<Order> byCustomerEmail = orderService.findByCustomerPhone(phone, page, pageSize);
+
+
         /*HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Access-Control-Allow-Origin", "http://localhost:4200");
         return ResponseEntity.ok().headers(responseHeaders).body(byCustomerEmail);*/
