@@ -2,6 +2,7 @@ package com.nct.store.service;
 
 import com.nct.store.dao.UserRolesRepository;
 import com.nct.store.dao.UsersRepository;
+import com.nct.store.dto.UserCred;
 import com.nct.store.entity.Role;
 import com.nct.store.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,5 +67,19 @@ public class UserServiceImpl implements UserService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean userValidate(UserCred users) {
+        if(users.getPhone()!=null && users.getIdentity()!=null){
+            User user = usersRepository.findAllByUsername(users.getPhone());
+            String pass = String.copyValueOf(user.getPassword());
+            String pass1 = String.copyValueOf(users.getIdentity());
+
+            if(pass.equalsIgnoreCase(pass1)){
+                return true;
+            }
+        }
+        return false;
     }
 }

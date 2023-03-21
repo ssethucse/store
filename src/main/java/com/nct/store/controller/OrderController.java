@@ -53,6 +53,16 @@ public class OrderController {
         return orderService.findAllOrders();
     }
 
+    @GetMapping("/findProgressOrders")
+    List<OrderResp> findProgressOrders() {
+        return orderService.findProgressOrders();
+    }
+
+    @GetMapping("/deliveredOrders")
+    List<OrderResp> deliveredOrders() {
+        return orderService.deliveredOrders();
+    }
+
     @PostMapping("/status/upgrade")
     String updateOrderStatus(@RequestBody String orderStatus) {
         return orderService.updateOrderStatus(orderStatus);

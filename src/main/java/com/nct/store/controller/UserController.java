@@ -1,5 +1,6 @@
 package com.nct.store.controller;
 
+import com.nct.store.dto.UserCred;
 import com.nct.store.entity.Role;
 import com.nct.store.entity.User;
 import com.nct.store.service.UserService;
@@ -39,5 +40,14 @@ public class UserController {
     @GetMapping("/user/role/getAllDetails")
     ResponseEntity<List<Role>> getAllRoleDetails() {
         return new ResponseEntity<>(userService.findRoleDetails(), HttpStatus.OK);
+    }
+
+    @PostMapping("/user/validate")
+    ResponseEntity<Boolean> userValidate(@RequestBody UserCred users) {
+        boolean result = userService.userValidate(users);
+        if(result) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
     }
 }

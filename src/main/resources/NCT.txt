@@ -662,6 +662,29 @@ CREATE TABLE `order_item` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
+CREATE  TABLE user_role
+(
+    id int NOT NULL AUTO_INCREMENT,
+    users_id int,
+    description CHAR(150) ,
+    name CHAR(50) ,
+    created_date TIMESTAMP,
+    updated_date TIMESTAMP,
+    PRIMARY KEY (id)
+)
+
+CREATE TABLE nct_user
+(
+    id INT,
+    username CHAR(50) ,
+    password CHAR(255) ,
+    mobile varchar(50),
+    mail CHAR(50),
+    enabled int  ,
+    created_date TIMESTAMP,
+    updated_date TIMESTAMP,
+    PRIMARY KEY(id)
+)
 
 
 

@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Random;
 
@@ -113,7 +112,7 @@ public class MessageSenderService {
         try {
             Twilio.init(accountSID, accountAuthToken);
 
-            String smsText = "Your Order "+ invoice +"is placed successfully.Contact No.9944370922 For Enquiry.";
+            String smsText = "Your Order "+ invoice +"is placed successfully.Contact For Enquiry - 9944370922.";
             String mobileNumber = "+91"+phone;
 
             try {
@@ -139,7 +138,7 @@ public class MessageSenderService {
         try {
             Twilio.init(accountSID, accountAuthToken);
 
-            String smsText = "Thanks For Your Order.It Successfully Delivered.Contact No.9944370922 For Enquiry.";
+            String smsText = "Thanks For Your Order with NCT.It has Successfully Delivered.Contact For Enquiry - 9944370922.";
             String mobileNumber = "+91"+phone;
 
             try {

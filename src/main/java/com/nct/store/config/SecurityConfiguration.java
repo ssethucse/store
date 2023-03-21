@@ -56,8 +56,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         httpSecurity.cors().and().csrf().disable()
                 // dont authenticate this particular request
                 .authorizeRequests()
-                .antMatchers("/authenticate", "/customer/register","/mobile/validateOtp", "/mobile/sendOtp",
-                        "/nct/store/**","/checkout/purchase","/customer/validate/**")
+                .antMatchers("/authenticate","/authenticate1", "/customer/register","/mobile/validateOtp", "/mobile/sendOtp",
+                        "/nct/store/**","/checkout/purchase","/customer/validate/**","/user/validate")
                 .permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().

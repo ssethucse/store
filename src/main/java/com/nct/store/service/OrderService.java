@@ -54,16 +54,18 @@ public class OrderService {
         if (customer != null) {
             if(customer.getStatus()!=null && customer.getStatus().equalsIgnoreCase("Delivered")){
                 customer.setStatus("In-Progress");
+                orderRepository.save(customer);
             }else {
+                customer.setStatus("Delivered");
+                orderRepository.save(customer);
+
                 try {
                     String message = messageSenderService.updateOrder(customer.getCustomer().getPhone());
                     log.info("Placed Order Successfully: {}",message);
                 } catch (Exception e) {
                     log.error("Place Order Failed {}",e.getMessage());
                 }
-                customer.setStatus("Delivered");
             }
-            orderRepository.save(customer);
             return "Success";
         }
         return null;
@@ -75,7 +77,6 @@ public class OrderService {
 
     public List<OrderResp> findAllOrders() {
         return orderRepository.findAll().stream()
-                .filter(data->data.getStatus().equalsIgnoreCase("In-Progress"))
                 .sorted(Comparator.comparing(Order::getDateCreated).reversed())
                 .map(data->mapOrder(data))
                 .collect(Collectors.toList());
@@ -117,5 +118,21 @@ public class OrderService {
             return invoiceResps;
         }
         return null;
+    }
+
+    public List<OrderResp> findProgressOrders() {
+        return orderRepository.findAll().stream()
+                .filter(data->data.getStatus().equalsIgnoreCase("In-Progress"))
+                .sorted(Comparator.comparing(Order::getDateCreated).reversed())
+                .map(data->mapOrder(data))
+                .collect(Collectors.toList());
+    }
+
+    public List<OrderResp> deliveredOrders() {
+        return orderRepository.findAll().stream()
+                .filter(data->data.getStatus().equalsIgnoreCase("Delivered"))
+                .sorted(Comparator.comparing(Order::getDateCreated).reversed())
+                .map(data->mapOrder(data))
+                .collect(Collectors.toList());
     }
 }
