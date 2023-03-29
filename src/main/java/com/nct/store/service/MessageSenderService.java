@@ -116,17 +116,22 @@ public class MessageSenderService {
             String mobileNumber = "+91"+phone;
 
             try {
+                PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
+                PhoneNumber senderTwilloPhoneNumber = new PhoneNumber(twilloSenderNumber);
+
+                MessageCreator creator = Message.creator(recieverPhoneNumber,
+                        senderTwilloPhoneNumber, smsText);
+                Message create = creator.create();
+            } catch (Exception e) {
+                log.error("Error while sending message={}",e.getMessage());
+            }
+
+            try {
                 emailService.sendMail("ssethucse@gmail.com",invoice+"-"+mobileNumber);
             } catch (Exception e) {
                 log.error("Error while sending mail={}",e.getMessage());
             }
 
-            PhoneNumber recieverPhoneNumber = new PhoneNumber(mobileNumber);//TODO
-            PhoneNumber senderTwilloPhoneNumber = new PhoneNumber(twilloSenderNumber);
-
-            MessageCreator creator = com.twilio.rest.api.v2010.account.Message.creator(recieverPhoneNumber,
-                    senderTwilloPhoneNumber, smsText);
-            Message create = creator.create();
             return "Placed Successfully.";
 
         } catch (Exception e) {
