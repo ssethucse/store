@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +20,7 @@ public class JwtTokenService implements Serializable {
 
 	private static final long serialVersionUID = -2550185165626007488L;
 
-	public static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;//TODO need to change the validity
+	public static final long JWT_TOKEN_VALIDITY = 240 * 60 * 60;
 
 	@Value("${jwt.secret}")
 	private String secret;
@@ -62,8 +64,20 @@ public class JwtTokenService implements Serializable {
 	private String doGenerateToken(Map<String, Object> claims, String subject) {
 
 		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
+				//.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
+				.setExpiration(getOneYear())
 				.signWith(SignatureAlgorithm.HS512, secret).compact();
+	}
+
+	private Date getOneYear() {
+		try {
+			Date currentDate = new Date();
+			LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+			return java.sql.Timestamp.valueOf(localDateTime.plusYears(1));
+		} catch (Exception e){
+			System.out.println("Error on getOneYear = " + e.getMessage());
+		}
+		return new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000);
 	}
 
 	//validate token

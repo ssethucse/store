@@ -57,7 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // dont authenticate this particular request
                 .authorizeRequests()
                 .antMatchers("/authenticate","/authenticate1", "/customer/register","/mobile/validateOtp", "/mobile/sendOtp",
-                        "/nct/store/**","/checkout/purchase","/customer/validate/**","/user/validate","/**/api-docs/**")
+                        "/nct/store/**","/checkout/purchase","/customer/validate/**","/user/validate","/**/api-docs/**","/publish/**","/subscribe/**")
                 .permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().
